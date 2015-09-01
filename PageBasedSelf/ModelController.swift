@@ -26,8 +26,18 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     override init() {
         super.init()
         // Create the data model.
-        let dateFormatter = NSDateFormatter()
-        pageData = dateFormatter.monthSymbols
+        var title:Array<String> = ["傲笑紅塵","青陽子","風之痕","亂世狂刀"]
+        var weapon:Array<String> = ["劍","扇","劍","刀"]
+        var poem1 = "寒劍默聽君子意，\n傲視人間笑紅塵。"
+        var poem2 = "三教原本道為首，\n焉能平坐共齊名。"
+        var poem3 = "堪尋對手共論劍，\n高處不勝寒。"
+        var poem4 = "一簫一劍平生意，\n負盡狂名十五年。"
+        var poem:Array<String> = [poem1,poem2,poem3,poem4]
+        var content:Array<String> = []
+        for var i:Int=0 ; i<4 ; i++ {
+            content.append(title[i] + "|" + weapon[i] + "|" + poem[i] + "|")
+        }
+        pageData = [content[0],content[1],content[2],content[3]]
     }
 
     func viewControllerAtIndex(index: Int, storyboard: UIStoryboard) -> DataViewController? {
